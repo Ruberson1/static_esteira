@@ -573,35 +573,35 @@ export default {
         id: 1,
         user: {id: 1, name: 'Ragnar'},
         status: {id: 1, name: 'LIB. DEV',},
-        history_date: '22/04/2023',
+        history_date: '22/04/2023 15:42:27',
         task: {id:22, title: 'Alterar layout tela de login'}
       },
       {
         id: 2,
         user: {id: 1, name: 'Ragnar'},
         status: {id: 2, name: 'DESENVOLVIMENTO',},
-        history_date: '22/04/2023',
+        history_date: '22/04/2023 15:42:27',
         task: {id:22, title: 'Alterar layout tela de login'}
       },
       {
         id: 3,
         user: {id: 1, name: 'Ragnar'},
         status: {id: 3, name: 'LIB. HOMOLOG',},
-        history_date: '22/04/2023',
+        history_date: '22/04/2023 15:42:27',
         task: {id:22, title: 'Alterar layout tela de login'}
       },
       {
         id: 4,
         user: {id: 1, name: 'Ragnar'},
         status: {id: 4, name: 'HOMOLOG',},
-        history_date: '22/04/2023',
+        history_date: '22/04/2023 15:42:27',
         task: {id:22, title: 'Alterar layout tela de login'}
       },
       {
         id: 5,
         user: {id: 1, name: 'Ragnar'},
         status: {id: 5, name: 'LIB. PROD',},
-        history_date: '22/04/2023',
+        history_date: '22/04/2023 15:42:27',
         task: {id:22, title: 'Alterar layout tela de login'}
       }
     ]);
@@ -678,7 +678,12 @@ export default {
     const editTask = ref(false);
     const isDark = ref(computed(() => App.setup().isDark).value);
 
-
+    function isLogged() {
+      const email = sessionStorage.getItem('email');
+      if (email !== 'admin@email.com') {
+        window.location.href='/';
+      }
+    }
     function libHomolog(status) {
       if (status == process.env.VUE_APP_STATUS_LIB_HOMOLOG) {
         this.modalFormPull = true
@@ -703,11 +708,13 @@ export default {
       categories,
       homologDelay,
       taskDelay,
-      editTask
+      editTask,
+      isLogged
     }
   },
 
   beforeMount() {
+    this.isLogged()
     const visible = useSidebarstore();
     visible.isSidebarVisible = true
   },

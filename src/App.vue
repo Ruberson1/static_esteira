@@ -160,7 +160,7 @@ export default {
     }
 
     function logout() {
-      window.location.href = '/login';
+      window.location.href = '/';
     }
 
     function rightSidebar() {

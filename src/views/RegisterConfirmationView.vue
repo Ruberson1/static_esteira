@@ -23,7 +23,7 @@ export default {
     const router = useRouter()
 
     const redirectToLogin = () => {
-      router.push('/login')
+      router.push('/')
     }
     const isMobile = computed(() => window.innerWidth < 768)
 

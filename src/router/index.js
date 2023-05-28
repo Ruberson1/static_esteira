@@ -1,16 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import authMiddleware from "@/middleware/authMiddleware";
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
-    beforeEnter: authMiddleware,
     component: HomeView,
   },
   {
-    path: '/login',
+    path: '/',
     name: 'login',
     component: () => import(/* webpackChunkName: "login" */ '../views/LoginView')
   },

@@ -89,9 +89,8 @@ export default {
             text: 'Email ou senha incorretos',
           });
         } else {
-          const email = encrypt(this.email, process.env.VUE_APP_ENCRYPT_KEY);
-          sessionStorage.setItem('email', email);
-          window.location.href="/";
+          sessionStorage.setItem('email', this.email);
+          window.location.href="/home";
         }
       }
     }
